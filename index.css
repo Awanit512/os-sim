@@ -1,0 +1,70 @@
+#backgroundWallpaper{
+    position: absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+}
+
+#headDock{
+    position: absolute;
+    top:0;
+    left:0;
+    background: #313a49;
+    height: 40px;
+    width:100%;
+
+}
+
+#headDock>img {
+    position: absolute;
+    top:0;
+    left:10px;
+    height:40px;
+    width:65px;
+}
+
+#headDock>p {
+    display: inline-block;
+    margin-top: 10px;
+    color: white;
+    margin-left:20px;
+}
+
+#rightDock{
+    position: absolute;
+    top:0;
+    right:0;
+}
+
+
+.fas,.fa-date-time{
+    font-style: normal;
+    color:white;
+}
+#rightDock>i{
+    display: inline-block;
+    margin-top:10px;
+    margin-right:20px;
+}
+
+#bottomDock{
+    position: absolute;
+    bottom: 20px;
+    height: 70px;
+    width: 685px;
+    left:620px;
+    background-color: #777777;
+    opacity: 0.6;
+}
+
+#bottomDock>i{
+    display: inline-block;
+    margin-top:20px;
+    margin-left:35px;
+    color:black;
+    -ms-transform: rotate(-5deg); /* IE 9 */
+    -webkit-transform: rotate(-5deg); /* Safari */
+    transform: rotate(-5deg);
+}
+
