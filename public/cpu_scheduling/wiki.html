@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Page Replacement</title>
+  <title>CPU Scheduling</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -54,8 +54,8 @@
   ============================-->
   <section id="hero">
     <div class="hero-container">
-      <h1>Page Replacement algorithms</h1>
-      <h2>In a computer operating system that uses paging for virtual memory management, page replacement algorithms decide which memory pages to page out (swap out, write to disk) when a page of memory needs to be allocated. Paging happens when a page fault occurs and a free page cannot be used to satisfy the allocation, either because there are none, or because the number of free pages is lower than some threshold. When the page that was selected for replacement and paged out is referenced again it has to be paged in (read in from disk), and this involves waiting for I/O completion. This determines the quality of the page replacement algorithm: the less time waiting for page-ins, the better the algorithm. A page replacement algorithm looks at the limited information about accesses to the pages provided by hardware, and tries to guess which pages should be replaced to minimize the total number of page misses, while balancing this with the costs (primary storage and processor time) of the algorithm itself.</h2>
+      <h1>CPU scheduling algorithms</h1>
+      <h2>CPU scheduling is a process which allows one process to use the CPU while the execution of another process is on hold(in waiting state) due to unavailability of any resource like I/O etc, thereby making full use of CPU. The aim of CPU scheduling is to make the system efficient, fast and fair.Whenever the CPU becomes idle, the operating system must select one of the processes in the ready queue to be executed. The selection process is carried out by the short-term scheduler (or CPU scheduler). The scheduler selects from among the processes in memory that are ready to execute, and allocates the CPU to one of them.</h2>
       <a href="#about" class="btn-get-started">Learn more</a>
     </div>
   </section><!-- #hero -->
@@ -70,9 +70,9 @@
         <div class="row about-container">
 
           <div class="col-lg-6 content order-lg-1 order-2">
-            <h2 class="title">Wiki about page replacement</h2>
+            <h2 class="title">Wiki about CPU scheduling</h2>
             <p>
-              A page replacement algorithm looks at the limited information about accesses to the pages provided by hardware, and tries to guess which pages should be replaced to minimize the total number of page misses, while balancing this with the costs (primary storage and processor time) of the algorithm itself.
+
             </p>
 
             <div class="icon-box wow fadeInUp">

@@ -340,8 +340,6 @@
   <!--</div>  -->
 <!--</div>-->
 
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -374,7 +372,7 @@
     <div id="rightDock">
         <i class="fas fa-wifi"></i>
         <i class="fas fa-battery-full"></i>
-        <i class="fa-date-time">Tues 10:41 AM</i>
+        <i class="fa-date-time" id="time"></i>
     </div>
 </div>
 
@@ -387,16 +385,18 @@
     </div>
 </div>
 
+<div id="viewer">
+    <p>PAGE REPLACEMENT</p>
+</div>
+
 <div id="bottomDock">
-    <a href="/page_replacement/wiki.html"><i class="fas fa-file-alt fa-2x"></i></a>
-    <a href="/cpu_scheduling/wiki.html"><i class="fas fa-upload fa-2x"></i></a>
-    <a href="/file_allocation/wiki.html"><i class="fas fa-hdd fa-2x"></i></a>
-    <a href="/disk_scheduling/wiki.html"><i class="fas fa-server fa-2x"></i></a>
-    <a href="/memory_management/wiki.html"><i class="fas fa-microchip fa-2x"></i></a>
-    <a href="/bankers/wiki.html"><i class="fas fa-memory fa-2x"></i></a>
-    <a href="/process_synchronization/wiki.html"><i class="fas fa-database fa-2x"></i></a>
-    <a href=""><i class="fas fa-hdd fa-2x"></i></a>
-    <a href=""><i class="fas fa-server fa-2x"></i></a>
+    <a href="/page_replacement/wiki.html"><i class="fas fa-file-alt fa-2x" style="color:green;" id="pgr"></i></a>
+    <a href="/cpu_scheduling/wiki.html"><i class="fas fa-upload fa-2x" style="color:blue;" id="cpu"></i></a>
+    <a href="/file_allocation/wiki.html"><i class="fas fa-hdd fa-2x" style="color:yellow;" id="file"></i></a>
+    <a href="/disk_scheduling/wiki.html"><i class="fas fa-server fa-2x" style="color:red;" id="disk"></i></a>
+    <a href="/memory_management/wiki.html"><i class="fas fa-microchip fa-2x" style="color:lightcoral;" id="mem"></i></a>
+    <a href="/bankers/wiki.html"><i class="fas fa-memory fa-2x" style="color: orange" id="banker"></i></a>
+    <a href="/process_synchronization/wiki.html"><i class="fas fa-database fa-2x" style="color: #00BFFF;" id="sync"></i></a>
 </div>
 
 <!-- Optional JavaScript -->
@@ -404,6 +404,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="javascripts/base.js"></script>
 </body>
 </html>
 

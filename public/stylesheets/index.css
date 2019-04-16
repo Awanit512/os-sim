@@ -51,14 +51,28 @@ body{
     margin-right:20px;
 }
 
+#viewer{
+    position: absolute;
+    top:100px;
+    left:45%;
+    font-size: 20px;
+    color: white;
+    border: 2px black solid;
+    visibility: hidden;
+    padding: 0.3em;
+    padding-left: 1.7em;
+    padding-right: 1.7em;
+    border-radius: 100px;
+}
+
 #bottomDock{
     position: absolute;
     bottom: 20px;
     height: 70px;
-    width: 685px;
-    left:620px;
-    background-color: #777777;
-    opacity: 0.6;
+    width: 525px;
+    left:700px;
+    background-color: #454545;
+    opacity: 0.8;
 }
 
 #bottomDock>a>i{

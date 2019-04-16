@@ -14,23 +14,15 @@ $(document).ready(function () {
 		if(hours>=12) 
 		{
 			hours = hours-12;
-			$('.top-navbar .right .am-pm').text('PM');
+            $('#time').text(hours + ':' + minutes + ' PM');
 		}
 
 		else 
 		{
-			$('.top-navbar .right .am-pm').text('AM');
+            $('#time').text(hours + ':' + minutes + ' AM');
 		}
 
-		$('.top-navbar .right .time').text(hours + ':' + minutes);
-
 	},1000);
-
-	$("#shutdown-button").click(function(){
-		$("body").fadeOut();
-		$("body").css("background-image","none");
-		$("body").css("background-color","#000");
-	});
 });
 
 // to set height - jugaad
@@ -51,3 +43,66 @@ $(".side-navbar button").click(function(){
 function openFile(){
 	$('#side_bar').toggle(100);
 }
+
+$('#pgr').hover(function(){
+	$("#viewer").css("visibility","visible");
+	$('#viewer').text("Page replacement");
+});
+
+$('#pgr').mouseout(function(){
+    $("#viewer").css("visibility","hidden");
+});
+
+$('#cpu').hover(function(){
+    $("#viewer").css("visibility","visible");
+    $('#viewer').text("CPU scheduling");
+});
+
+$('#cpu').mouseout(function(){
+    $("#viewer").css("visibility","hidden");
+});
+
+$('#disk').hover(function(){
+    $("#viewer").css("visibility","visible");
+    $('#viewer').text("Disk scheduling");
+});
+
+$('#disk').mouseout(function(){
+    $("#viewer").css("visibility","hidden");
+});
+
+$('#mem').hover(function(){
+    $("#viewer").css("visibility","visible");
+    $('#viewer').text("Memory allocation");
+});
+
+$('#mem').mouseout(function(){
+    $("#viewer").css("visibility","hidden");
+});
+
+$('#file').hover(function(){
+    $("#viewer").css("visibility","visible");
+    $('#viewer').text("File allocation");
+});
+
+$('#file').mouseout(function(){
+    $("#viewer").css("visibility","hidden");
+});
+
+$('#banker').hover(function(){
+    $("#viewer").css("visibility","visible");
+    $('#viewer').text("Deadlock and Banker");
+});
+
+$('#banker').mouseout(function(){
+    $("#viewer").css("visibility","hidden");
+});
+
+$('#sync').hover(function(){
+    $("#viewer").css("visibility","visible");
+    $('#viewer').text("Process sync");
+});
+
+$('#sync').mouseout(function(){
+    $("#viewer").css("visibility","hidden");
+});

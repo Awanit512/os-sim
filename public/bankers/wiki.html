@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Page Replacement</title>
+  <title>Bankers Algorithm</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -54,8 +54,8 @@
   ============================-->
   <section id="hero">
     <div class="hero-container">
-      <h1>Page Replacement algorithms</h1>
-      <h2>In a computer operating system that uses paging for virtual memory management, page replacement algorithms decide which memory pages to page out (swap out, write to disk) when a page of memory needs to be allocated. Paging happens when a page fault occurs and a free page cannot be used to satisfy the allocation, either because there are none, or because the number of free pages is lower than some threshold. When the page that was selected for replacement and paged out is referenced again it has to be paged in (read in from disk), and this involves waiting for I/O completion. This determines the quality of the page replacement algorithm: the less time waiting for page-ins, the better the algorithm. A page replacement algorithm looks at the limited information about accesses to the pages provided by hardware, and tries to guess which pages should be replaced to minimize the total number of page misses, while balancing this with the costs (primary storage and processor time) of the algorithm itself.</h2>
+      <h1>Deadlock avoidance and Bankers algorithm</h1>
+      <h2>The Banker algorithm, sometimes referred to as the detection algorithm, is a resource allocation and deadlock avoidance algorithm developed by Edsger Dijkstra that tests for safety by simulating the allocation of predetermined maximum possible amounts of all resources, and then makes an "s-state" check to test for possible deadlock conditions for all other pending activities, before deciding whether allocation should be allowed to continue.</h2>
       <a href="#about" class="btn-get-started">Learn more</a>
     </div>
   </section><!-- #hero -->
@@ -70,27 +70,37 @@
         <div class="row about-container">
 
           <div class="col-lg-6 content order-lg-1 order-2">
-            <h2 class="title">Wiki about page replacement</h2>
+            <h2 class="title">Wiki about Banker's algorithm</h2>
             <p>
               A page replacement algorithm looks at the limited information about accesses to the pages provided by hardware, and tries to guess which pages should be replaced to minimize the total number of page misses, while balancing this with the costs (primary storage and processor time) of the algorithm itself.
             </p>
 
             <div class="icon-box wow fadeInUp">
               <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-              <h4 class="title"><a href="">Least Recently used</a></h4>
-              <p class="description">The least recently used (LRU) page replacement algorithm, though similar in name to NRU, differs in the fact that LRU keeps track of page usage over a short period of time, while NRU just looks at the usage in the last clock interval. LRU works on the idea that pages that have been most heavily used in the past few instructions are most likely to be used heavily in the next few instructions too. While LRU can provide near-optimal performance in theory (almost as good as adaptive replacement cache), it is rather expensive to implement in practice</p>
-            </div>
+              <h4 class="title"><a href="">Bankers' algorithm</a></h4>
+              <p class="description">Banker's algorithm is a deadlock avoidance algorithm. It is named so because this algorithm is used in banking systems to determine whether a loan can be granted or not.
 
-            <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
-              <div class="icon"><i class="fa fa-photo"></i></div>
-              <h4 class="title"><a href="">First in first out</a></h4>
-              <p class="description">The simplest page-replacement algorithm is a FIFO algorithm. The first-in, first-out (FIFO) page replacement algorithm is a low-overhead algorithm that requires little bookkeeping on the part of the operating system. The idea is obvious from the name – the operating system keeps track of all the pages in memory in a queue, with the most recent arrival at the back, and the oldest arrival in front. When a page needs to be replaced, the page at the front of the queue (the oldest page) is selected</p>
-            </div>
+                Consider there are n account holders in a bank and the sum of the money in all of their accounts is S. Everytime a loan has to be granted by the bank, it subtracts the loan amount from the total money the bank has. Then it checks if that difference is greater than S. It is done because, only then, the bank would have enough money even if all the n account holders draw all their money at once.
 
-            <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-              <div class="icon"><i class="fa fa-bar-chart"></i></div>
-              <h4 class="title"><a href="">Optimal Replacement</a></h4>
-              <p class="description">The theoretically optimal page replacement algorithm (also known as OPT, clairvoyant replacement algorithm, or Bélády's optimal page replacement policy)[3][4][5] is an algorithm that works as follows: when a page needs to be swapped in, the operating system swaps out the page whose next use will occur farthest in the future. For example, a page that is not going to be used for the next 6 seconds will be swapped out over a page that is going to be used within the next 0.4 seconds.</p>
+                Banker's algorithm works in a similar way in computers.
+
+                Whenever a new process is created, it must specify the maximum instances of each resource type that it needs, exactly.
+                Let us assume that there are n processes and m resource types. Some data structures that are used to implement the banker's algorithm are:
+
+
+                1. Available
+                It is an array of length m. It represents the number of available resources of each type. If Available[j] = k, then there are k instances available, of resource type R(j).
+
+
+                2. Max
+                It is an n x m matrix which represents the maximum number of instances of each resource that a process can request. If Max[i][j] = k, then the process P(i) can request atmost k instances of resource type R(j).
+
+
+                3. Allocation
+                It is an n x m matrix which represents the number of resources of each type currently allocated to each process. If Allocation[i][j] = k, then process P(i) is currently allocated k instances of resource type R(j).
+
+                4. Need
+                It is an n x m matrix which indicates the remaining resource needs of each process. If Need[i][j] = k, then process P(i) may need k more instances of resource type R(j) to complete its task.</p>
             </div>
 
           </div>
@@ -104,65 +114,39 @@
     <!--==========================
       Facts Section
     ============================-->
-    <section id="facts">
-      <div class="container wow fadeIn">
-        <div class="section-header">
-          <h3 class="section-title">Stats</h3>
-          <p class="section-description">Comparison of hit rates of different page replacement algorithms</p>
-        </div>
-        <div class="row counters">
+    <!--<section id="facts">-->
+      <!--<div class="container wow fadeIn">-->
+        <!--<div class="section-header">-->
+          <!--<h3 class="section-title">Stats</h3>-->
+          <!--<p class="section-description">Comparison of hit rates of different page replacement algorithms</p>-->
+        <!--</div>-->
+        <!--<div class="row counters">-->
 
-  				<div class="col-lg-4 col-6 text-center">
-            <span data-toggle="counter-up">70</span>
-            <p>LRU Avg. Hit Percentage</p>
-  				</div>
+  				<!--<div class="col-lg-4 col-6 text-center">-->
+            <!--<span data-toggle="counter-up">70</span>-->
+            <!--<p>LRU Avg. Hit Percentage</p>-->
+  				<!--</div>-->
 
-          <div class="col-lg-4 col-6 text-center">
-            <span data-toggle="counter-up">75</span>
-            <p>Optimal Avg. Hit Percentage</p>
-  				</div>
+          <!--<div class="col-lg-4 col-6 text-center">-->
+            <!--<span data-toggle="counter-up">75</span>-->
+            <!--<p>Optimal Avg. Hit Percentage</p>-->
+  				<!--</div>-->
 
-          <div class="col-lg-4 col-6 text-center">
-            <span data-toggle="counter-up">50</span>
-            <p>FIFO Avg. Hit Percentage</p>
-  				</div>
+          <!--<div class="col-lg-4 col-6 text-center">-->
+            <!--<span data-toggle="counter-up">50</span>-->
+            <!--<p>FIFO Avg. Hit Percentage</p>-->
+  				<!--</div>-->
 
-        </div>
+        <!--</div>-->
 
-      </div>
-    </section><!-- #facts -->
+      <!--</div>-->
+    <!--</section>&lt;!&ndash; #facts &ndash;&gt;-->
 
     <section id="services">
-      <a href="/page_replacement" class="btn-get-started" style="position: absolute; left:44%;">Run Simulation</a>
+      <a href="/bankers" class="btn-get-started" style="position: absolute; left:44%;">Run Simulation</a>
     </section>
 
   </main>
-
-  <!--==========================
-    Footer
-  ============================-->
-  <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong>Regna</strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Regna
-        -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer><!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
