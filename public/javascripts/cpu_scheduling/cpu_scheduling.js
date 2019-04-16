@@ -213,7 +213,6 @@ function submit() {
         async: false
     });
     print_table(output);
-    draw_graph(tt, wt);
 
 }
 
@@ -229,7 +228,7 @@ function draw_graph(tt, wt) {
     wt = to_float(wt);
     console.log(tt);
     console.log(wt);
-    $("body").append('<div class="container-fluid"><div class="row"><div class="col s12" id="chart-container"></div></div></div>');
+    $("body").append('<div class="container"><div class="row"><div class="col-md-12" style="margin:1em;" id="chart-container"></div></div></div>');
     var chart = {
         type: 'bar'
     };
@@ -279,11 +278,11 @@ function draw_graph(tt, wt) {
 function print_table(output) {
     console.log(output);
     var algo = ['FCFS','SJF Non-preemptive', 'SJF Preemptive', 'Priority Non-preemptive', 'Priority Preemptive', 'Priority Aging', 'Round Robin', 'Multilevel Queue'];
-    $("body").append("<div class='container-fluid' id='output'></div>");
+    $("body").append("<div class='container animated bounceInLeft delay-2s' id='output'></div>");
     var op = $('#output');
 
     for(var i = 0; i < output.length; ++i) {
-        op.append("<div class='row'><div class='col s8'><div class='panel'><div class='panel-body'><h3>"+algo[i]+"</h3><table class='striped'><thead><tr><th>Process ID</th><th>Burst time</th><th>Arrival time</th><th>Waiting Time</th><th>Turn Around Time</th><th>Completion time</th></tr></thead><tbody class='table-body"+i+"'></tbody></table></div></div></div></div>");
+        op.append("<div class='row'><div class='col-md-8'><div class='panel'><div class='panel-body'><h3>"+algo[i]+"</h3><table class='striped'><thead><tr><th>Process ID</th><th>Burst time</th><th>Arrival time</th><th>Waiting Time</th><th>Turn Around Time</th><th>Completion time</th></tr></thead><tbody class='table-body"+i+"'></tbody></table></div></div></div></div>");
         var cur = output[i].split('\n');
         console.log(cur);
         for(var j = 0; j < cur.length-2; ++j) {

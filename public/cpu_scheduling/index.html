@@ -10,7 +10,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.1.0/particles.min.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
@@ -21,16 +23,23 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script type="text/javascript" src="/javascripts/cpu_scheduling/cpu_scheduling.js"></script>
 
-</head>
-<body>
+<style>
+    .table-bordered td, .table-bordered th {
+      border: 1px solid black;
+  }
+    </style>
+      
 
+</head>
+<body style="background-color: #e5e5e5;">
+<div class="container">
 <header>
     <div class="container" style="margin: 0;">
         <div class="header-section">
-        <div id="particles-js">
+        <div>
         </div>
         <div class="header-font center-align">   
-            <span class="topic">CPU Scheduling</span>
+            <div  class="animated infinite bounce delay-2s" style="color:black">CPU Scheduling</div>
         </div>
         </div>
     </div>
@@ -40,59 +49,39 @@
         <div class="panel-body">
             <h5 >Input</h5>
             <div class="row">
-               <div class="input-field col s4">
-                    <input type="text" class="validate" id="time_quantum" />
+               <div class="input-field col-md-4 form-group ">
+                    <input type="text" class="validate form-control" id="time_quantum" />
                     <label for="head_pos">Time Quantum</label>
                </div>
             </div>
             <div class="row">
                 <div class="col s2"><b>Processes</b></div>
                 <div class="col s2">
-                    <a  class="btn btn-small btn-xs col s2" href="javascript:remove_process()">-</a>
+                    <a  class=" btn btn-primary" style="background-color:white;color: black" href="javascript:remove_process()">-</a>
                     <div class="col" id="n_processes">1</div>
-                    <a class="btn btn-small btn-xs col s2" href="javascript:add_process()">+</a>
+                    <a class=" btn btn-primary" style="background-color: white;color: black" href="javascript:add_process()">+</a>
               </div>
             </div>
+            <br><br><br>
             <div class="row" id="processes">
-                <div class="input-field col s4">
-                    <input class="validate" type="text" id="p_at0"/>
+                <div class="input-field col-md-4 form-group">
+                    <input class="validate form-control" type="text" id="p_at0"/>
                     <label for="head_pos">Arrival Time</label>
                 </div>
-                <div class="input-field col s4">
-                    <input class="validate" type="text" id="p_bt0" />
+                <div class="input-field col-md-4 form-group">
+                    <input class="validate form-control" type="text" id="p_bt0" />
                     <label for="head_pos">Burst Time</label>
                 </div>
-                <div class="input-field col s4">
-                    <input class="validate" type="text" id="p_pt0" />
+                <div class="input-field form-group col-md-4">
+                    <input class="validate form-control" type="text" id="p_pt0" />
                     <label for="head_pos">Priority</label>
                 </div>
             </div>
-            <a class="btn btn-primary" onclick="submit()">Submit</a>
+            <a class="btn btn-primary" style="background-color:white" onclick="submit()">Submit</a><br><br><br>
        </div>
     </div> 
 </div>
-<div class="fixed-action-btn">
-        <a class="btn-floating btn-large tooltipped red" data-position="left" data-tooltip="Home" href="../">
-          <i class="large material-icons">folder</i>
-        </a>
-        <!-- <ul>
-          <li><a class="btn-floating tooltipped red" data-position="left" data-tooltip="NRZ-L" href="../nrz-l"><i class="material-icons" >L</i></a></li>
-          <li><a class="btn-floating tooltipped yellow darken-1" data-position="left" data-tooltip="NRZ-I" href="../nrz-i"><i class="material-icons">I</i></a></li>
-          <li><a class="btn-floating tooltipped green" data-position="left" data-tooltip="Manchester" href="../manchester"><i class="material-icons">M</i></a></li>
-          <li><a class="btn-floating tooltipped blue" data-position="left" data-tooltip="Differential Manchester" href="../differential-manchester"><i class="material-icons">D</i></a></li>
-          <li><a class="btn-floating tooltipped black" data-position="left" data-tooltip="Polar Encodings" href="../polar"><i class="material-icons">P</i></a></li>
-        </ul>
-        <div class="fixed-action-btn horizontal">
-          <a class="btn-floating btn-large red" data-position="bottom" data-tooltip="Home" href="../">
-            <i class="large material-icons">folder</i>
-          </a>
-          <ul>
-            <li><a class="btn-floating tooltipped green" data-position="top" data-tooltip="Bipolar" href="../bipolar"><i class="material-icons">B</i></a></li>
-            <li><a class="btn-floating tooltipped blue" data-position="top" data-tooltip="Pseudoternary" href="../pseudoternary"><i class="material-icons">P</i></a></li>
-            <li><a class="btn-floating tooltipped black" data-position="top" data-tooltip="AMI" href="../ami"><i class="material-icons">A</i></a></li>
-          </ul>
-        </div> -->
-      </div>
-    
+
+</div>
 </body>
 </html>
