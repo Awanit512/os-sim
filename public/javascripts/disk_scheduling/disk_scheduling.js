@@ -25,7 +25,7 @@ function put_requests(){
     requests = S('requests');
     requests.innerHTML = "";
     for(var i=0;i<n_req;i++){
-        var p = '<div class="row"><div class="input-field col s2"><input class="validate" type="text"id="r'+i+'"/><label for="head_pos">Enter request value</label></div></div>';
+        var p = '<div class="row"><div class="input-field col s2"><input class="validate form-control" type="text"id="r'+i+'"/><label for="head_pos">Enter request value</label></div></div>';
         requests.innerHTML += p;
     }
 }
