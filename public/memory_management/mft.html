@@ -8,9 +8,10 @@
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"> 
 
-
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"> -->
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
@@ -26,7 +27,7 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <style>
@@ -107,18 +108,18 @@
     </style>
 
 </head>
-<body>
-
+<body style="background-color: #e5e5e5;">
+<div class="container">
 
   <header>
       <div class="container" style="margin: 0;">
         <div class="header-section">
-          <div id="particles-js">
+          <div>
           </div>
           <div class="header-font center-align">
             
-            <span class="topic">Memory Management (MFT)</span>
-          </div>
+              <div  class="animated infinite bounce delay-2s" style="color:black">Memory Management (MFT)</div>
+            </div>
         </div>
       </div>
   </header>
@@ -129,15 +130,15 @@
     	<br>
 
       <label>
-        <input class="with-gap" id="first" onclick="javascript:get_type()" name="group1" type="radio"  />
+        <input class = "form-control" class="with-gap" id="first" onclick="javascript:get_type()" name="group1" type="radio"  />
         <span>First Fit</span>
       </label>
         <label>
-        <input class="with-gap" id="best" onclick="javascript:get_type()" name="group1" type="radio"  />
+        <input class = "form-control" class="with-gap" id="best" onclick="javascript:get_type()" name="group1" type="radio"  />
         <span>Best Fit</span>
       </label>
         <label>
-        <input class="with-gap" id="worst" onclick="javascript:get_type()" name="group1" type="radio"  />
+        <input class = "form-control" class="with-gap" id="worst" onclick="javascript:get_type()" name="group1" type="radio"  />
         <span>Worst Fit</span>
       </label>
 
@@ -149,16 +150,16 @@
         <div class = "row">
             <div class = "col s6 center">
 	    		<div class="row">
-		          <div class="input-field col s12">
-		            <input id="mem_size" type="text" >
+		          <div class="form-group col-md-12">
+		            <input class = "form-control" id="mem_size" type="text" >
 		            <label for="number_of_frames">Enter Memory Size</label>
 		          </div>
 		        </div>
             </div>
-            <div class = "col s6 center">
+            <div class = "col-md-6 center">
             	<div class="row">
-		          <div class="input-field col s12">
-		            <input name="second_text" id="num_part" type="text" >
+		          <div class="form-group col-md-12">
+		            <input class = "form-control" name="second_text" id="num_part" type="text" >
 		            <label for="number_of_frames">Enter Number of Partitions</label>
 		          </div>
 		        </div>
@@ -167,7 +168,7 @@
         </br>
         <div class = "row center">
 
-        <a style="background-color:black;font-size: 15px;"onclick="javascript:submit1()" id="first_text_submit" class="waves-effect waves-light btn-large">Continue<i style="font-size:15px;margin-left: 10px;" class="fa fa-arrow-right"></i></a>
+        <a style="background-color:white;font-size: 25px;"onclick="javascript:submit1()" id="first_text_submit" class="btn btn-primary">Continue</a>
         </div>
     </div>
 
@@ -176,16 +177,16 @@
     <div class="container well well-sm">
 	    <div class="row center">
 	    </br></br>
-		    <div class = "col s6">
+		    <div class = "col-md-6">
             	<div class="row">
-		          <div class="input-field col s12">
-		            <input name="third_text" id="num_proc" type="text" >
+		          <div class="form-group col-md-12">
+		            <input class = "form-control" name="third_text" id="num_proc" type="text" >
 		            <label for="number_of_frames">Enter Number of processes</label>
 		          </div>
 		        </div>
 		    </div>
 		    </br>
-		    <div class="col s6">
+		    <div class="col-md-6">
 			    <div class = "row container" id = "partition_sizes">
 			    	
 			    </div>		    	
@@ -194,14 +195,14 @@
 		</div>
         <div class = "row center">
 
-        <a style="background-color:black;font-size: 15px;" onclick="javascript:submit2()" id="second_text_submit" class="waves-effect waves-light btn-large">Continue<i style="font-size:15px;margin-left: 10px;" class="fa fa-arrow-right"></i></a>
-        </div>
+            <a style="background-color:white;font-size: 25px;"onclick="javascript:submit2()" id="first_text_submit" class="btn btn-primary">Continue</a>
+          </div>
 	</div>
     <!-- Memory required for each process -->
     </br></br>
     <div class = "container well well-sm">
 
-		    <div class="col s6">
+		    <div class="col-md-6">
 			    <div class = "row container" id = "mem_req_proc">
 			    	
 			    </div>		    	
@@ -209,8 +210,8 @@
 
         <div class = "row center">
             
-        <a style="background-color:black;font-size: 15px;" onclick="javascript:submit3()" id="third_text_submit" id="b4" class="waves-effect waves-light btn-large">Simulate</a>
-        </div>
+            <a style="background-color:white;font-size: 25px;"onclick="javascript:submit3()" id="first_text_submit" class="btn btn-primary">Simulate</a>
+          </div>
     </div>
 
     <!-- To create the table -->
@@ -241,29 +242,8 @@
 	        <h4 class="center"><b>Process Allocation in Memory</b></h4></br></br>
 	    </div>
     </div>
-    <div class="fixed-action-btn">
-            <a class="btn-floating btn-large tooltipped red" data-position="left" data-tooltip="Home" href="../">
-              <i class="large material-icons">folder</i>
-            </a>
-            <!-- <ul>
-              <li><a class="btn-floating tooltipped red" data-position="left" data-tooltip="Contiguous" href="./contiguous.html"><i class="material-icons" >C</i></a></li>
-              <li><a class="btn-floating tooltipped yellow darken-1" data-position="left" data-tooltip="Indexed" href="./indexed.html"><i class="material-icons">I</i></a></li>
-              <li><a class="btn-floating tooltipped green" data-position="left" data-tooltip="Linked" href="./linked.html"><i class="material-icons">L</i></a></li>
-              <li><a class="btn-floating tooltipped blue" data-position="left" data-tooltip="Differential Manchester" href="../differential-manchester"><i class="material-icons">D</i></a></li>
-              <li><a class="btn-floating tooltipped black" data-position="left" data-tooltip="Polar Encodings" href="../polar"><i class="material-icons">P</i></a></li>
-            </ul>
-            <div class="fixed-action-btn horizontal">
-              <a class="btn-floating btn-large red" data-position="bottom" data-tooltip="Home" href="../">
-                <i class="large material-icons">folder</i>
-              </a>
-              <ul>
-                <li><a class="btn-floating tooltipped green" data-position="top" data-tooltip="Bipolar" href="../bipolar"><i class="material-icons">B</i></a></li>
-                <li><a class="btn-floating tooltipped blue" data-position="top" data-tooltip="Pseudoternary" href="../pseudoternary"><i class="material-icons">P</i></a></li>
-                <li><a class="btn-floating tooltipped black" data-position="top" data-tooltip="AMI" href="../ami"><i class="material-icons">A</i></a></li>
-              </ul>
-            </div> -->
-          </div>
-        
+   
+</div>       
     <script type="text/javascript" src="/javascripts/memory_management/memory_management.js"></script>
 </body>
 </html>

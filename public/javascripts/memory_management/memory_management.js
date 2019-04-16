@@ -79,7 +79,7 @@ function submit1(){
     partitionSizes.innerHTML = "";
     for(var i=1;i<=num_part;i++){
         partitionSizes.innerHTML+='<div class="input-field col s4">\
-                    <input name="third_text" id="p'+i+'" type="text" >\
+                        <input class = "form-control" name="third_text" id="p'+i+'" type="text" >\
                     <label for="number_of_frames">Size of partition '+i+'</label>\
                   </div>'
 
@@ -122,7 +122,7 @@ function submit2(){
     processSizes.innerHTML = "";
     for(var i=1;i<=num_proc;i++){
         processSizes.innerHTML+='<div class="input-field col s3">\
-                            <input name="third_text" id="pr'+i+'" type="text" >\
+                                <input class = "form-control" name="third_text" id="pr'+i+'" type="text" >\
                             <label for="number_of_frames">Enter size of processes '+i+'</label>\
                           </div>'
 
