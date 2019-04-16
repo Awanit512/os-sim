@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Page Replacement</title>
+  <title>Process Synchronization</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -54,8 +54,13 @@
   ============================-->
   <section id="hero">
     <div class="hero-container">
-      <h1>Page Replacement algorithms</h1>
-      <h2>In a computer operating system that uses paging for virtual memory management, page replacement algorithms decide which memory pages to page out (swap out, write to disk) when a page of memory needs to be allocated. Paging happens when a page fault occurs and a free page cannot be used to satisfy the allocation, either because there are none, or because the number of free pages is lower than some threshold. When the page that was selected for replacement and paged out is referenced again it has to be paged in (read in from disk), and this involves waiting for I/O completion. This determines the quality of the page replacement algorithm: the less time waiting for page-ins, the better the algorithm. A page replacement algorithm looks at the limited information about accesses to the pages provided by hardware, and tries to guess which pages should be replaced to minimize the total number of page misses, while balancing this with the costs (primary storage and processor time) of the algorithm itself.</h2>
+      <h1>Process Sychronization</h1>
+      <h2>When two or more process cooperates with each other, their order of execution must be preserved otherwise there can be conflicts in their execution and inappropriate outputs can be produced.
+
+A cooperative process is the one which can affect the execution of other process or can be affected by the execution of other process. Such processes need to be synchronized so that their order of execution can be guaranteed.
+
+The procedure involved in preserving the appropriate order of execution of cooperative processes is known as Process Synchronization. There are various synchronization mechanisms that are used to synchronize the processes.
+</h2>
       <a href="#about" class="btn-get-started">Learn more</a>
     </div>
   </section><!-- #hero -->
@@ -70,27 +75,56 @@
         <div class="row about-container">
 
           <div class="col-lg-6 content order-lg-1 order-2">
-            <h2 class="title">Wiki about page replacement</h2>
+            <h2 class="title">Wiki about process synchronization</h2>
             <p>
-              A page replacement algorithm looks at the limited information about accesses to the pages provided by hardware, and tries to guess which pages should be replaced to minimize the total number of page misses, while balancing this with the costs (primary storage and processor time) of the algorithm itself.
+              Process Synchronization</b> means sharing system resources by processes in a such a way that,
+                                Concurrent access to shared data is handled thereby minimizing the chance of inconsistent data. Maintaining data consistency demands mechanisms to ensure synchronized execution of cooperating processes.</p>
+            <p class="w3-large w3-text-grey w3-hide-medium"><h5><u>Critical Section Problem</u></h5>
+                                                            A Critical Section is a code segment that accesses shared variables and has to be executed as an atomic action. It means that in a group of cooperating processes,
+                                                            at a given point of time, only one process must be executing its critical section. If any other process also wants to execute its critical section, it must wait until the first one finishes.<br>
+                                                            <br><u>Solution</u><br>
+                                                            1.Mutual exclusion<br>
+                                                            Out of a group of cooperating processes, only one process can be in its critical section at a given point of time.<br>
+                                                            ____________________________________________________________________________________<br>
+                                                            2.Progress<br>
+                                                            If no process is in its critical section, and if one or more threads want to execute their critical section then any one of these threads must be allowed to get into its critical section.<br>
+                                                            ____________________________________________________________________________________<br>
+                                                            3.Bounded Waiting<br>
+                                                            After a process makes a request for getting into its critical section, there is a limit for how many other processes can get into their critical section, before this process's request is granted.
+                                                            So after the limit is reached, system must grant the process permission to get into its critical section.
             </p>
 
             <div class="icon-box wow fadeInUp">
               <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-              <h4 class="title"><a href="">Least Recently used</a></h4>
-              <p class="description">The least recently used (LRU) page replacement algorithm, though similar in name to NRU, differs in the fact that LRU keeps track of page usage over a short period of time, while NRU just looks at the usage in the last clock interval. LRU works on the idea that pages that have been most heavily used in the past few instructions are most likely to be used heavily in the next few instructions too. While LRU can provide near-optimal performance in theory (almost as good as adaptive replacement cache), it is rather expensive to implement in practice</p>
+              <h4 class="title"><a href="">Producer Consumer Problem using Semaphores</a></h4>
+              <p class="description">In computing, the producer–consumer problem (also known as the bounded-buffer problem) is a classic example of a multi-process synchronization problem.
+                                    The problem describes two processes, the producer and the consumer, which share a common, fixed-size buffer used as a queue.<br>
+                                    1.The producer’s job is to generate data, put it into the buffer, and start again.<br>
+                                    2.At the same time, the consumer is consuming the data (i.e. removing it from the buffer), one piece at a time.<br>
+                                    <b>Problem :</b><br>
+                                    To make sure that the producer won’t try to add data into the buffer if it’s full and that the consumer won’t try to remove data from an empty buffer.</p>
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
               <div class="icon"><i class="fa fa-photo"></i></div>
-              <h4 class="title"><a href="">First in first out</a></h4>
-              <p class="description">The simplest page-replacement algorithm is a FIFO algorithm. The first-in, first-out (FIFO) page replacement algorithm is a low-overhead algorithm that requires little bookkeeping on the part of the operating system. The idea is obvious from the name – the operating system keeps track of all the pages in memory in a queue, with the most recent arrival at the back, and the oldest arrival in front. When a page needs to be replaced, the page at the front of the queue (the oldest page) is selected</p>
+              <h4 class="title"><a href="">Reader Writer Problem</a></h4>
+              <p class="description">Consider a situation where we have a file shared between many people.<br>
+                                    1.If one of the people tries editing the file, no other person should be reading or writing at the same time, otherwise changes will not be visible to him/her.<br>
+                                    2.However if some person is reading the file, then others may read it at the same time.<br>
+                                    Precisely in OS we call this situation as the <b>readers-writers problem</b>.<br>
+                                    Problem parameters:<br>
+                                    1.One set of data is shared among a number of processes<br>
+                                    2.Once a writer is ready, it performs its write. Only one writer may write at a time.<br>
+                                    3.If a process is writing, no other process can read it.<br>
+                                    4.If at least one reader is reading, no other process can write.<br>
+                                    5.Readers may not write and only read.</p>
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
               <div class="icon"><i class="fa fa-bar-chart"></i></div>
-              <h4 class="title"><a href="">Optimal Replacement</a></h4>
-              <p class="description">The theoretically optimal page replacement algorithm (also known as OPT, clairvoyant replacement algorithm, or Bélády's optimal page replacement policy)[3][4][5] is an algorithm that works as follows: when a page needs to be swapped in, the operating system swaps out the page whose next use will occur farthest in the future. For example, a page that is not going to be used for the next 6 seconds will be swapped out over a page that is going to be used within the next 0.4 seconds.</p>
+              <h4 class="title"><a href="">Dining Philosophers’ Problem</a></h4>
+              <p class="description">The Dining Philosopher Problem states that K philosophers seated around a circular table with one chopstick between each pair of philosophers.
+                                    There is one chopstick between each philosopher. A philosopher may eat if he can pick-up the two chopsticks adjacent to him. One chopstick may be picked up by any one of its adjacent followers but not both. </p><br>
             </div>
 
           </div>
@@ -101,39 +135,8 @@
       </div>
     </section><!-- #about -->
 
-    <!--==========================
-      Facts Section
-    ============================-->
-    <section id="facts">
-      <div class="container wow fadeIn">
-        <div class="section-header">
-          <h3 class="section-title">Stats</h3>
-          <p class="section-description">Comparison of hit rates of different page replacement algorithms</p>
-        </div>
-        <div class="row counters">
-
-  				<div class="col-lg-4 col-6 text-center">
-            <span data-toggle="counter-up">70</span>
-            <p>LRU Avg. Hit Percentage</p>
-  				</div>
-
-          <div class="col-lg-4 col-6 text-center">
-            <span data-toggle="counter-up">75</span>
-            <p>Optimal Avg. Hit Percentage</p>
-  				</div>
-
-          <div class="col-lg-4 col-6 text-center">
-            <span data-toggle="counter-up">50</span>
-            <p>FIFO Avg. Hit Percentage</p>
-  				</div>
-
-        </div>
-
-      </div>
-    </section><!-- #facts -->
-
     <section id="services">
-      <a href="/page_replacement" class="btn-get-started" style="position: absolute; left:44%;">Run Simulation</a>
+      <a href="/process_synchronization" class="btn-get-started" style="position: absolute; left:44%;">Run Simulation</a>
     </section>
 
   </main>

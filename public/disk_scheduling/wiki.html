@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Page Replacement</title>
+  <title>Disk Scheduling</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -54,8 +54,8 @@
   ============================-->
   <section id="hero">
     <div class="hero-container">
-      <h1>Page Replacement algorithms</h1>
-      <h2>In a computer operating system that uses paging for virtual memory management, page replacement algorithms decide which memory pages to page out (swap out, write to disk) when a page of memory needs to be allocated. Paging happens when a page fault occurs and a free page cannot be used to satisfy the allocation, either because there are none, or because the number of free pages is lower than some threshold. When the page that was selected for replacement and paged out is referenced again it has to be paged in (read in from disk), and this involves waiting for I/O completion. This determines the quality of the page replacement algorithm: the less time waiting for page-ins, the better the algorithm. A page replacement algorithm looks at the limited information about accesses to the pages provided by hardware, and tries to guess which pages should be replaced to minimize the total number of page misses, while balancing this with the costs (primary storage and processor time) of the algorithm itself.</h2>
+      <h1>Disk Scheduling algorithms</h1>
+      <h2>As we know that on a single Computer we can Perform Many Operations at a Time so that Management is also necessary on all the Running Processes those are running on the System at a Time. With the help or Advent of the Multi-programming we can Execute Many Programs at a Time. So fir Controlling and providing the Memory to all the Processes Operating System uses the Concept of Disk Scheduling.</h2>
       <a href="#about" class="btn-get-started">Learn more</a>
     </div>
   </section><!-- #hero -->
@@ -70,27 +70,52 @@
         <div class="row about-container">
 
           <div class="col-lg-6 content order-lg-1 order-2">
-            <h2 class="title">Wiki about page replacement</h2>
+            <h2 class="title">Wiki about disk scheduling</h2>
             <p>
-              A page replacement algorithm looks at the limited information about accesses to the pages provided by hardware, and tries to guess which pages should be replaced to minimize the total number of page misses, while balancing this with the costs (primary storage and processor time) of the algorithm itself.
+              Disk scheduling is is done by operating systems to schedule I/O requests arriving for disk. Disk scheduling is also known as I/O scheduling.
             </p>
 
             <div class="icon-box wow fadeInUp">
               <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-              <h4 class="title"><a href="">Least Recently used</a></h4>
-              <p class="description">The least recently used (LRU) page replacement algorithm, though similar in name to NRU, differs in the fact that LRU keeps track of page usage over a short period of time, while NRU just looks at the usage in the last clock interval. LRU works on the idea that pages that have been most heavily used in the past few instructions are most likely to be used heavily in the next few instructions too. While LRU can provide near-optimal performance in theory (almost as good as adaptive replacement cache), it is rather expensive to implement in practice</p>
+              <h4 class="title"><a href="">First Come-First Serve (FCFS)</a></h4>
+              <p class="description">FCFS is the simplest of all the Disk Scheduling Algorithms. In FCFS, the requests are addressed in the order they arrive in the disk queue. All incoming requests are placed at the end of the queue. Whatever number that is next in the queue will be the next number served. Using this algorithm doesn't provide the best results.</p>
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
               <div class="icon"><i class="fa fa-photo"></i></div>
-              <h4 class="title"><a href="">First in first out</a></h4>
-              <p class="description">The simplest page-replacement algorithm is a FIFO algorithm. The first-in, first-out (FIFO) page replacement algorithm is a low-overhead algorithm that requires little bookkeeping on the part of the operating system. The idea is obvious from the name – the operating system keeps track of all the pages in memory in a queue, with the most recent arrival at the back, and the oldest arrival in front. When a page needs to be replaced, the page at the front of the queue (the oldest page) is selected</p>
+              <h4 class="title"><a href="">Shortest Seek Time First (SSTF) </a></h4>
+              <p class="description">In SSTF (Shortest Seek Time First), requests having shortest seek time are executed first. So, the seek time of every request is calculated in advance in queue and then they are scheduled according to their calculated seek time. As a result, the request near the disk arm will get executed first. SSTF is certainly an improvement over FCFS as it decreases the average response time and increases the throughput of system.</p>
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
               <div class="icon"><i class="fa fa-bar-chart"></i></div>
-              <h4 class="title"><a href="">Optimal Replacement</a></h4>
-              <p class="description">The theoretically optimal page replacement algorithm (also known as OPT, clairvoyant replacement algorithm, or Bélády's optimal page replacement policy)[3][4][5] is an algorithm that works as follows: when a page needs to be swapped in, the operating system swaps out the page whose next use will occur farthest in the future. For example, a page that is not going to be used for the next 6 seconds will be swapped out over a page that is going to be used within the next 0.4 seconds.</p>
+              <h4 class="title"><a href="">Elevator (SCAN) </a></h4>
+              <p class="description">In SCAN algorithm the disk arm moves into a particular direction and services the requests coming in its path and after reaching the end of disk, it reverses its direction and again services the request arriving in its path. So, this algorithm works like an elevator and hence also known as elevator algorithm. As a result, the requests at the midrange are serviced more and those arriving behind the disk arm will have to wait.
+</p>
+            </div>
+
+<div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+              <div class="icon"><i class="fa fa-bar-chart"></i></div>
+              <h4 class="title"><a href="">Circular Scan (C-SCAN) </a></h4>
+              <p class="description">In SCAN algorithm, the disk arm again scans the path that has been scanned, after reversing its direction. So, it may be possible that too many requests are waiting at the other end or there may be zero or few requests pending at the scanned area.
+These situations are avoided in CSAN algorithm in which the disk arm instead of reversing its direction goes to the other end of the disk and starts servicing the requests from there. So, the disk arm moves in a circular fashion and this algorithm is also similar to SCAN algorithm and hence it is known as C-SCAN (Circular SCAN).
+</p>
+            </div>
+
+
+<div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+              <div class="icon"><i class="fa fa-bar-chart"></i></div>
+              <h4 class="title"><a href="">LOOK</a></h4>
+              <p class="description">It is similar to the SCAN disk scheduling algorithm except the difference that the disk arm in spite of going to the end of the disk goes only to the last request to be serviced in front of the head and then reverses its direction from there only. Thus it prevents the extra delay which occurred due to unnecessary traversal to the end of the disk.
+</p>
+            </div>
+
+
+<div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+              <div class="icon"><i class="fa fa-bar-chart"></i></div>
+              <h4 class="title"><a href="">C-LOOK  </a></h4>
+              <p class="description">As LOOK is similar to SCAN algorithm, in similar way, CLOOK is similar to CSCAN disk scheduling algorithm. In CLOOK, the disk arm inspite of going to the end goes only to the last request to be serviced in front of the head and then from there goes to the other end’s last request. Thus, it also prevents the extra delay which occurred due to unnecessary traversal to the end of the disk.
+</p>
             </div>
 
           </div>
@@ -101,39 +126,9 @@
       </div>
     </section><!-- #about -->
 
-    <!--==========================
-      Facts Section
-    ============================-->
-    <section id="facts">
-      <div class="container wow fadeIn">
-        <div class="section-header">
-          <h3 class="section-title">Stats</h3>
-          <p class="section-description">Comparison of hit rates of different page replacement algorithms</p>
-        </div>
-        <div class="row counters">
-
-  				<div class="col-lg-4 col-6 text-center">
-            <span data-toggle="counter-up">70</span>
-            <p>LRU Avg. Hit Percentage</p>
-  				</div>
-
-          <div class="col-lg-4 col-6 text-center">
-            <span data-toggle="counter-up">75</span>
-            <p>Optimal Avg. Hit Percentage</p>
-  				</div>
-
-          <div class="col-lg-4 col-6 text-center">
-            <span data-toggle="counter-up">50</span>
-            <p>FIFO Avg. Hit Percentage</p>
-  				</div>
-
-        </div>
-
-      </div>
-    </section><!-- #facts -->
 
     <section id="services">
-      <a href="/page_replacement" class="btn-get-started" style="position: absolute; left:44%;">Run Simulation</a>
+      <a href="/disk_scheduling" class="btn-get-started" style="position: absolute; left:44%;">Run Simulation</a>
     </section>
 
   </main>
@@ -163,6 +158,7 @@
       </div>
     </div>
   </footer><!-- #footer -->
+
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Page Replacement</title>
+  <title>File Allocation</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -54,8 +54,8 @@
   ============================-->
   <section id="hero">
     <div class="hero-container">
-      <h1>Page Replacement algorithms</h1>
-      <h2>In a computer operating system that uses paging for virtual memory management, page replacement algorithms decide which memory pages to page out (swap out, write to disk) when a page of memory needs to be allocated. Paging happens when a page fault occurs and a free page cannot be used to satisfy the allocation, either because there are none, or because the number of free pages is lower than some threshold. When the page that was selected for replacement and paged out is referenced again it has to be paged in (read in from disk), and this involves waiting for I/O completion. This determines the quality of the page replacement algorithm: the less time waiting for page-ins, the better the algorithm. A page replacement algorithm looks at the limited information about accesses to the pages provided by hardware, and tries to guess which pages should be replaced to minimize the total number of page misses, while balancing this with the costs (primary storage and processor time) of the algorithm itself.</h2>
+      <h1>File Allocation algorithms</h1>
+      <h2>File Allocation Table (FAT) is a computer file system architecture and a family of industry-standard file systems utilizing it. The FAT file system is a continuing standard which borrows source code from the original, legacy file system and proves to be simple and robust. It offers useful performance even in lightweight implementations, but cannot deliver the same performance, reliability and scalability as some modern file systems. It is, however, supported for compatibility reasons by nearly all currently developed operating systems for personal computers and many mobile devices and embedded systems, and thus is a well-suited format for data exchange between computers and devices of almost any type and age from 1981 up to the present.</h2>
       <a href="#about" class="btn-get-started">Learn more</a>
     </div>
   </section><!-- #hero -->
@@ -70,27 +70,29 @@
         <div class="row about-container">
 
           <div class="col-lg-6 content order-lg-1 order-2">
-            <h2 class="title">Wiki about page replacement</h2>
+            <h2 class="title">Wiki about file allocation</h2>
             <p>
-              A page replacement algorithm looks at the limited information about accesses to the pages provided by hardware, and tries to guess which pages should be replaced to minimize the total number of page misses, while balancing this with the costs (primary storage and processor time) of the algorithm itself.
+              The allocation methods define how the files are stored in the disk blocks.The main idea behind file allocation methods is to provide:<br>
+                                                            1.Efficient disk space utilization.<br>
+                                                            2.Fast access to the file blocks.<br>
             </p>
 
             <div class="icon-box wow fadeInUp">
               <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-              <h4 class="title"><a href="">Least Recently used</a></h4>
-              <p class="description">The least recently used (LRU) page replacement algorithm, though similar in name to NRU, differs in the fact that LRU keeps track of page usage over a short period of time, while NRU just looks at the usage in the last clock interval. LRU works on the idea that pages that have been most heavily used in the past few instructions are most likely to be used heavily in the next few instructions too. While LRU can provide near-optimal performance in theory (almost as good as adaptive replacement cache), it is rather expensive to implement in practice</p>
+              <h4 class="title"><a href="">Contiguous Allocation</a></h4>
+              <p class="description">In this scheme, each file occupies a contiguous set of blocks on the disk. For example, if a file requires n blocks and is given a block b as the starting location, then the blocks assigned to the file will be: b, b+1, b+2,……b+n-1. This means that given the starting block address and the length of the file (in terms of blocks required), we can determine the blocks occupied by the file.The directory entry for a file with contiguous allocation contains addresss of the starting block and the length of the allocated partition.</p>
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
               <div class="icon"><i class="fa fa-photo"></i></div>
-              <h4 class="title"><a href="">First in first out</a></h4>
-              <p class="description">The simplest page-replacement algorithm is a FIFO algorithm. The first-in, first-out (FIFO) page replacement algorithm is a low-overhead algorithm that requires little bookkeeping on the part of the operating system. The idea is obvious from the name – the operating system keeps track of all the pages in memory in a queue, with the most recent arrival at the back, and the oldest arrival in front. When a page needs to be replaced, the page at the front of the queue (the oldest page) is selected</p>
+              <h4 class="title"><a href="">Indexed File Allocation</a></h4>
+              <p class="description">In this scheme, a special block known as the Index block contains the pointers to all the blocks occupied by a file. Each file has its own index block. The ith entry in the index block contains the disk address of the ith file block. The directory entry contains the address of the index block.</p>
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
               <div class="icon"><i class="fa fa-bar-chart"></i></div>
-              <h4 class="title"><a href="">Optimal Replacement</a></h4>
-              <p class="description">The theoretically optimal page replacement algorithm (also known as OPT, clairvoyant replacement algorithm, or Bélády's optimal page replacement policy)[3][4][5] is an algorithm that works as follows: when a page needs to be swapped in, the operating system swaps out the page whose next use will occur farthest in the future. For example, a page that is not going to be used for the next 6 seconds will be swapped out over a page that is going to be used within the next 0.4 seconds.</p>
+              <h4 class="title"><a href="">Linked File Allocation</a></h4>
+              <p class="description">In this scheme, each file is a linked list of disk blocks which need not be contiguous. The disk blocks can be scattered anywhere on the disk.The directory entry contains a pointer to the starting and the ending file block. Each block contains a pointer to the next block occupied by the file.</p>
             </div>
 
           </div>
@@ -101,39 +103,9 @@
       </div>
     </section><!-- #about -->
 
-    <!--==========================
-      Facts Section
-    ============================-->
-    <section id="facts">
-      <div class="container wow fadeIn">
-        <div class="section-header">
-          <h3 class="section-title">Stats</h3>
-          <p class="section-description">Comparison of hit rates of different page replacement algorithms</p>
-        </div>
-        <div class="row counters">
-
-  				<div class="col-lg-4 col-6 text-center">
-            <span data-toggle="counter-up">70</span>
-            <p>LRU Avg. Hit Percentage</p>
-  				</div>
-
-          <div class="col-lg-4 col-6 text-center">
-            <span data-toggle="counter-up">75</span>
-            <p>Optimal Avg. Hit Percentage</p>
-  				</div>
-
-          <div class="col-lg-4 col-6 text-center">
-            <span data-toggle="counter-up">50</span>
-            <p>FIFO Avg. Hit Percentage</p>
-  				</div>
-
-        </div>
-
-      </div>
-    </section><!-- #facts -->
 
     <section id="services">
-      <a href="/page_replacement" class="btn-get-started" style="position: absolute; left:44%;">Run Simulation</a>
+      <a href="/file_allocation" class="btn-get-started" style="position: absolute; left:44%;">Run Simulation</a>
     </section>
 
   </main>
@@ -163,6 +135,7 @@
       </div>
     </div>
   </footer><!-- #footer -->
+
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
