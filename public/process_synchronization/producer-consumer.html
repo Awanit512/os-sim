@@ -28,14 +28,14 @@
     
   </head>
 
-  <body>
+  <body style="background-color: #e5e5e5;">
 
 <!-- To load side and top navbar -->
 <!-- DO NOT CHANGE THIS -->
 <!-- <div id="side_top_navbar">
 
 </div> -->
-<h1 style="text-align: center;">Producer Consumer</h1>
+<div  class="animated infinite bounce delay-2s" style="color:black;font-size: 3em;text-align: center;margin-top:4em">Producer Consumer</div>
 <br>
     <!-- Content -->
     <div class="container">
@@ -118,65 +118,7 @@
         <div class="col-md-2"></div>
       </div>
 
-      <div class="waiting_room1" >
-      <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <div class="panel panel-default">
-            <div class="panel-heading">What's going on?</div>
-            <div class="panel-body" id="status"></div>
-          </div>
-        </div>
-        <div class="col-md-2"></div>
-      </div>
-    </div>
-    
-      <div class="waiting_room2">
-      <div class="row visualization">
-        <div class="col-md-2"></div>
-          <div class="col-md-4">
-            <div class="panel panel-default">
-              <div class="panel-heading">Producer
-                <span class="panel-label">
-                  <span id="producer-current" class="label label-default"></span>
-                  <span id="producer-active" class="label label-primary">Active</span>
-                  <span id="producer-status" class="label"></span>
-                </span>
-              </div>
-              <div class="panel-body code-panel">
-                <pre id="code-barber"><code class="language-c">void *producer() {
-    sem_wait(&amp;empty);
-    sem_wait(&amp;mutex);
-    produce();
-    sem_post(&amp;mutex);
-    sem_post(&amp;fill);
-    cut_hair(); 
-}</code></pre>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="panel panel-default">
-              <div class="panel-heading">Consumer
-                <span class="panel-label">
-                  <span id="consumer-current" class="label label-default"></span>
-                  <span id="consumer-active" class="label label-primary">Active</span>
-                  <span id="consumer-status" class="label"></span>
-                </span>
-              </div>
-                
-              <div class="panel-body code-panel">
-                <pre id="code-customer"><code class="language-c">void *consumer() {
-  sem_wait(&amp;fill);
-  sem_wait(&amp;mutex);
-  consume();
-  sem_post(&amp;mutex);
-  sem_post(&amp;empty);
-}</code></pre>
-             </div>
-          </div>
-        </div>
-        <div class="col-md-2"></div>
+     
       </div>
       </div> </div>
     </div>

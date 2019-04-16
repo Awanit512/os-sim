@@ -21,6 +21,10 @@ $(document).ready(function() {
   // Initializes number of current step
   var step = 1;
 
+   var button = document.getElementById("step-next");
+   button.click();
+  console.log(button);
+
   // JSON object for the steps of simulation
   var steps = [
   {
