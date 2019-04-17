@@ -70,13 +70,22 @@ function add_file(){
     // for(var i = 0; i < file_name.length; ++i)
     //     input += ' 1 ' + file_name[i] + ' ' + sizes[i];
     if(sum+k>64){
+        alert(
+            "memory not available"
+        )
          Materialize.toast("Memory not available", 2000);
         sum= +sum - +size;
     }
-    else if(size>10)
-         Materialize.toast("File size too big , Give a smaller file ", 2000);
-    else if(size<=0)
-         Materialize.toast("Invalid input", 2000);
+    else if(size>10){
+        alert("File size too big , Give a smaller file");
+        Materialize.toast("File size too big , Give a smaller file ", 2000);
+    }
+         
+    else if(size<=0){
+        alert("Invalid Input");
+        Materialize.toast("Invalid input", 2000);
+    }
+        
     else if(file_name.indexOf(fname) === -1) {
         input += ' 1 ' + fname + ' ' + parseInt(size);// + ' ' + '0';
         // file_n++;
@@ -86,9 +95,12 @@ function add_file(){
         console.log(input);
         send_request(input);
     }
-    else
+    else{
+        alert("File name already exists");
         Materialize.toast("File name already exists", 2000);
-}
+    }
+    }
+        
 
 function send_request(input){
     console.log(input);
