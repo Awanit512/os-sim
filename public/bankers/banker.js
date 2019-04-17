@@ -83,6 +83,7 @@ var res,pro;
 			function banker()
 			{
 						var res_form = document.resource;
+						console.log(res_form[1]);
 						var resource = [];
 						for(var i = 1;i <= res; i++)
 						{
@@ -138,53 +139,53 @@ var res,pro;
 						// }
 						console.log('avail: ' + avail);
 						//TABLE for NEED
-						var tab_need = document.getElementById("tab_need");
-						var row = tab_need.insertRow(0);
-						var cell = row.insertCell(0);
-						cell.innerHTML = "<b>Need</b>";
-                        var pro_head = tab_need.insertRow(1);
-                        var cell = pro_head.insertCell(0);
-                        cell.innerHTML = "<b>Process</b>";
-                        for(i=1;i<=res;i++)
-                        {
-                            cell = pro_head.insertCell(i);
-                            cell.innerHTML = "<b>Res "+(i-1)+"</b>";
-                        }
-						for(i=0;i<pro;i++)
-						{
-							var row = tab_need.insertRow(i+2);
-                            var cell = row.insertCell(0);
-                            cell.innerHTML = "<b>P"+i+"</b>";
-							for(j=0;j<res;j++)
-							{
-								var cell = 	row.insertCell(j+1);
-								cell.innerHTML = ned[res*i+j];
-							}
-						}
-                        //TABLE for ALLOC
-						var tab_alloc = document.getElementById("tab_alloc");
-						var row = tab_alloc.insertRow(0);
-						var cell = row.insertCell(0);
-						cell.innerHTML = "<b>Allocation</b>";
-                        var alloc_head = tab_alloc.insertRow(1);
-                        var cell = alloc_head.insertCell(0);
-                        cell.innerHTML = "<b>Process</b>";
-                        for(i=1;i<=res;i++)
-                        {
-                            cell = alloc_head.insertCell(i);
-                            cell.innerHTML = "<b>Res "+(i-1)+"</b>";
-                        }
-						for(i=0;i<pro;i++)
-						{
-							var row = tab_alloc.insertRow(i+2);
-                            var cell = row.insertCell(0);
-                            cell.innerHTML = "<b>P"+i+"</b>";
-							for(j=0;j<res;j++)
-							{
-								var cell = 	row.insertCell(j+1);
-								cell.innerHTML = alloc[i][j];
-							}
-						}
+						// var tab_need = document.getElementById("tab_need");
+						// var row = tab_need.insertRow(0);
+						// var cell = row.insertCell(0);
+						// cell.innerHTML = "<b>Need</b>";
+                        // var pro_head = tab_need.insertRow(1);
+                        // var cell = pro_head.insertCell(0);
+                        // cell.innerHTML = "<b>Process</b>";
+                        // for(i=1;i<=res;i++)
+                        // {
+                        //     cell = pro_head.insertCell(i);
+                        //     cell.innerHTML = "<b>Res "+(i-1)+"</b>";
+                        // }
+						// for(i=0;i<pro;i++)
+						// {
+						// 	var row = tab_need.insertRow(i+2);
+                        //     var cell = row.insertCell(0);
+                        //     cell.innerHTML = "<b>P"+i+"</b>";
+						// 	for(j=0;j<res;j++)
+						// 	{
+						// 		var cell = 	row.insertCell(j+1);
+						// 		cell.innerHTML = ned[res*i+j];
+						// 	}
+						// }
+                        // //TABLE for ALLOC
+						// var tab_alloc = document.getElementById("tab_alloc");
+						// var row = tab_alloc.insertRow(0);
+						// var cell = row.insertCell(0);
+						// cell.innerHTML = "<b>Allocation</b>";
+                        // var alloc_head = tab_alloc.insertRow(1);
+                        // var cell = alloc_head.insertCell(0);
+                        // cell.innerHTML = "<b>Process</b>";
+                        // for(i=1;i<=res;i++)
+                        // {
+                        //     cell = alloc_head.insertCell(i);
+                        //     cell.innerHTML = "<b>Res "+(i-1)+"</b>";
+                        // }
+						// for(i=0;i<pro;i++)
+						// {
+						// 	var row = tab_alloc.insertRow(i+2);
+                        //     var cell = row.insertCell(0);
+                        //     cell.innerHTML = "<b>P"+i+"</b>";
+						// 	for(j=0;j<res;j++)
+						// 	{
+						// 		var cell = 	row.insertCell(j+1);
+						// 		cell.innerHTML = alloc[i][j];
+						// 	}
+						// }
                         var prints = document.getElementById("printing");
 						var i,j;
 						var exec = 0; //Number of executed processes
