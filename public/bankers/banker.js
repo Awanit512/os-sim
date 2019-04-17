@@ -87,6 +87,7 @@ var res,pro;
 						for(var i = 1;i <= res; i++)
 						{
 							resource[i-1] = Number(res_form[i].value);
+							console.log('resource: ' + i + " " + resource[i-1]);
 						}
 						console.log(resource);
 						var form = document.Need;
@@ -97,13 +98,16 @@ var res,pro;
 							{
 								ned[i-1] = Number(form[i].value);
 							}
+							var max = [];
 							var needy = [];
 							for(var i = 0; i<pro;i++)
 							{
+								max[i] = [];
 								needy[i] = [];
 								for(var j=0;j<res;j++)
 								{
-									needy[i][j] = ned[i*res+j];
+									max[i][j] = ned[i*res+j];
+									console.log('needy:'+ i + " " + j + " " + max[i][j]);
 								}
 							}
 							console.log(ned);
@@ -116,21 +120,22 @@ var res,pro;
 								for(var j = 0;j < res;j++)
 								{
 									alloc[i][j] = Number(alloc_form[i*res+j].value);
-                                    console.log(alloc[i][j]);
+                                    console.log('alloc:'+ i + " " + j + " " + alloc[i][j]);
+                                    needy[i][j] = max[i][j] - alloc[i][j];
 								}
 							}
 						console.log(alloc);
 						var avail = [];
 						for(var i = 0; i < res; i++)
 							avail[i] = resource[i];
-						for(var i = 0; i < pro; i++)
-						{
-							for(var j = 0; j < res; j++)
-							{
-								avail[j] = avail[j] - alloc[i][j];
-								needy[i][j] = needy[i][j] - alloc[i][j];
-							}
-						}
+						// for(var i = 0; i < pro; i++)
+						// {
+						// 	for(var j = 0; j < res; j++)
+						// 	{
+						// 		avail[j] = avail[j] - alloc[i][j];
+						// 		needy[i][j] = needy[i][j] - alloc[i][j];
+						// 	}
+						// }
 						console.log('avail: ' + avail);
 						//TABLE for NEED
 						var tab_need = document.getElementById("tab_need");
