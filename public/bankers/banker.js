@@ -41,7 +41,7 @@ var res,pro;
                         $item = document.createElement('div');
                         $item.style.margin = '10px';
                         $field = document.createElement('label');
-                        $field.innerHTML = 'Need for process '+$i+' Res: ' +$j;
+                        $field.innerHTML = 'Max for process '+$i+' Res: ' +$j;
 					    $item.appendChild($field);
                         $field = document.createElement('input');
                         $field.name = 'Design[' + $i + ']';
@@ -83,6 +83,7 @@ var res,pro;
 			function banker()
 			{
 						var res_form = document.resource;
+						console.log(res_form[1]);
 						var resource = [];
 						for(var i = 1;i <= res; i++)
 						{
