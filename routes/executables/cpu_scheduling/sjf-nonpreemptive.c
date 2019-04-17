@@ -1,4 +1,3 @@
-//created by Palak Singhal
 #include <stdio.h>
 #include <limits.h>
 #include <stdlib.h>
