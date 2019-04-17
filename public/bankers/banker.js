@@ -83,6 +83,7 @@ var res,pro;
 			function banker()
 			{
 						var res_form = document.resource;
+						console.log(res_form[1]);
 						var resource = [];
 						for(var i = 1;i <= res; i++)
 						{
