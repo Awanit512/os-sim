@@ -88,6 +88,7 @@ var res,pro;
 						for(var i = 1;i <= res; i++)
 						{
 							resource[i-1] = Number(res_form[i].value);
+							console.log('resource: ' + i + " " + resource[i-1]);
 						}
 						console.log(resource);
 						var form = document.Need;
@@ -98,13 +99,16 @@ var res,pro;
 							{
 								ned[i-1] = Number(form[i].value);
 							}
+							var max = [];
 							var needy = [];
 							for(var i = 0; i<pro;i++)
 							{
+								max[i] = [];
 								needy[i] = [];
 								for(var j=0;j<res;j++)
 								{
-									needy[i][j] = ned[i*res+j];
+									max[i][j] = ned[i*res+j];
+									console.log('needy:'+ i + " " + j + " " + max[i][j]);
 								}
 							}
 							console.log(ned);
@@ -117,70 +121,71 @@ var res,pro;
 								for(var j = 0;j < res;j++)
 								{
 									alloc[i][j] = Number(alloc_form[i*res+j].value);
-                                    console.log(alloc[i][j]);
+                                    console.log('alloc:'+ i + " " + j + " " + alloc[i][j]);
+                                    needy[i][j] = max[i][j] - alloc[i][j];
 								}
 							}
 						console.log(alloc);
 						var avail = [];
 						for(var i = 0; i < res; i++)
 							avail[i] = resource[i];
-						for(var i = 0; i < pro; i++)
-						{
-							for(var j = 0; j < res; j++)
-							{
-								avail[j] = avail[j] - alloc[i][j];
-								needy[i][j] = needy[i][j] - alloc[i][j];
-							}
-						}
+						// for(var i = 0; i < pro; i++)
+						// {
+						// 	for(var j = 0; j < res; j++)
+						// 	{
+						// 		avail[j] = avail[j] - alloc[i][j];
+						// 		needy[i][j] = needy[i][j] - alloc[i][j];
+						// 	}
+						// }
 						console.log('avail: ' + avail);
 						//TABLE for NEED
-						var tab_need = document.getElementById("tab_need");
-						var row = tab_need.insertRow(0);
-						var cell = row.insertCell(0);
-						cell.innerHTML = "<b>Need</b>";
-                        var pro_head = tab_need.insertRow(1);
-                        var cell = pro_head.insertCell(0);
-                        cell.innerHTML = "<b>Process</b>";
-                        for(i=1;i<=res;i++)
-                        {
-                            cell = pro_head.insertCell(i);
-                            cell.innerHTML = "<b>Res "+(i-1)+"</b>";
-                        }
-						for(i=0;i<pro;i++)
-						{
-							var row = tab_need.insertRow(i+2);
-                            var cell = row.insertCell(0);
-                            cell.innerHTML = "<b>P"+i+"</b>";
-							for(j=0;j<res;j++)
-							{
-								var cell = 	row.insertCell(j+1);
-								cell.innerHTML = ned[res*i+j];
-							}
-						}
-                        //TABLE for ALLOC
-						var tab_alloc = document.getElementById("tab_alloc");
-						var row = tab_alloc.insertRow(0);
-						var cell = row.insertCell(0);
-						cell.innerHTML = "<b>Allocation</b>";
-                        var alloc_head = tab_alloc.insertRow(1);
-                        var cell = alloc_head.insertCell(0);
-                        cell.innerHTML = "<b>Process</b>";
-                        for(i=1;i<=res;i++)
-                        {
-                            cell = alloc_head.insertCell(i);
-                            cell.innerHTML = "<b>Res "+(i-1)+"</b>";
-                        }
-						for(i=0;i<pro;i++)
-						{
-							var row = tab_alloc.insertRow(i+2);
-                            var cell = row.insertCell(0);
-                            cell.innerHTML = "<b>P"+i+"</b>";
-							for(j=0;j<res;j++)
-							{
-								var cell = 	row.insertCell(j+1);
-								cell.innerHTML = alloc[i][j];
-							}
-						}
+						// var tab_need = document.getElementById("tab_need");
+						// var row = tab_need.insertRow(0);
+						// var cell = row.insertCell(0);
+						// cell.innerHTML = "<b>Need</b>";
+                        // var pro_head = tab_need.insertRow(1);
+                        // var cell = pro_head.insertCell(0);
+                        // cell.innerHTML = "<b>Process</b>";
+                        // for(i=1;i<=res;i++)
+                        // {
+                        //     cell = pro_head.insertCell(i);
+                        //     cell.innerHTML = "<b>Res "+(i-1)+"</b>";
+                        // }
+						// for(i=0;i<pro;i++)
+						// {
+						// 	var row = tab_need.insertRow(i+2);
+                        //     var cell = row.insertCell(0);
+                        //     cell.innerHTML = "<b>P"+i+"</b>";
+						// 	for(j=0;j<res;j++)
+						// 	{
+						// 		var cell = 	row.insertCell(j+1);
+						// 		cell.innerHTML = ned[res*i+j];
+						// 	}
+						// }
+                        // //TABLE for ALLOC
+						// var tab_alloc = document.getElementById("tab_alloc");
+						// var row = tab_alloc.insertRow(0);
+						// var cell = row.insertCell(0);
+						// cell.innerHTML = "<b>Allocation</b>";
+                        // var alloc_head = tab_alloc.insertRow(1);
+                        // var cell = alloc_head.insertCell(0);
+                        // cell.innerHTML = "<b>Process</b>";
+                        // for(i=1;i<=res;i++)
+                        // {
+                        //     cell = alloc_head.insertCell(i);
+                        //     cell.innerHTML = "<b>Res "+(i-1)+"</b>";
+                        // }
+						// for(i=0;i<pro;i++)
+						// {
+						// 	var row = tab_alloc.insertRow(i+2);
+                        //     var cell = row.insertCell(0);
+                        //     cell.innerHTML = "<b>P"+i+"</b>";
+						// 	for(j=0;j<res;j++)
+						// 	{
+						// 		var cell = 	row.insertCell(j+1);
+						// 		cell.innerHTML = alloc[i][j];
+						// 	}
+						// }
                         var prints = document.getElementById("printing");
 						var i,j;
 						var exec = 0; //Number of executed processes
