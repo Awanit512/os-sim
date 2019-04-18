@@ -23,8 +23,6 @@ int main(int argc, char const *argv[])
 		p[k].burst_time = atoi(argv[i+2]);
 		k++;
 	}
-	p[0].completion_time=p[0].arrival_time+p[0].burst_time;
-	p[0].waiting_time=0;
 
 	for(i=0;i<n-1;i++)
 	{
@@ -37,20 +35,20 @@ int main(int argc, char const *argv[])
 				p[j+1]=temp;
 			}
 		}
-	}	
+	}
+
+	p[0].completion_time=p[0].arrival_time+p[0].burst_time;
+	p[0].waiting_time=0;
+	p[0].turn_around_time=p[0].burst_time;	
 
 	for(i=1;i<n;i++)
 	{
 		p[i].completion_time=p[i-1].completion_time+p[i].burst_time;
-		p[i].waiting_time = p[i].completion_time-p[i].arrival_time;
+		p[i].turn_around_time = p[i].completion_time-p[i].arrival_time;
+		p[i].waiting_time = p[i].turn_around_time-p[i].burst_time;
 
 		if(p[i].waiting_time<0)
 			p[i].waiting_time=0;
-	}
-
-	for(i=0;i<n;i++)
-	{
-		p[i].turn_around_time = p[i].burst_time + p[i].waiting_time;
 	}
 
 	for(i=0;i<n-1;i++)
