@@ -1,0 +1,87 @@
+body{
+    font-size: 15px;
+}
+#backgroundWallpaper{
+    position: absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+}
+
+#headDock{
+    position: absolute;
+    top:0;
+    left:0;
+    background: #313a49;
+    height: 40px;
+    width:100%;
+
+}
+
+#headDock>img {
+    position: absolute;
+    top:0;
+    left:10px;
+    height:40px;
+    width:65px;
+}
+
+#headDock>p {
+    display: inline-block;
+    margin-top: 10px;
+    color: white;
+    margin-left:20px;
+}
+
+#rightDock{
+    position: absolute;
+    top:0;
+    right:0;
+}
+
+
+.fas,.fa-date-time{
+    font-style: normal;
+    color:white;
+}
+#rightDock>i{
+    display: inline-block;
+    margin-top:10px;
+    margin-right:20px;
+}
+
+#viewer{
+    position: absolute;
+    top:100px;
+    left:45%;
+    font-size: 20px;
+    color: white;
+    border: 2px black solid;
+    visibility: hidden;
+    padding: 0.3em;
+    padding-left: 1.7em;
+    padding-right: 1.7em;
+    border-radius: 100px;
+}
+
+#bottomDock{
+    position: absolute;
+    bottom: 20px;
+    height: 70px;
+    width: 525px;
+    left:700px;
+    background-color: #454545;
+    opacity: 0.8;
+}
+
+#bottomDock>a>i{
+    display: inline-block;
+    margin-top:20px;
+    margin-left:35px;
+    color:black;
+    -ms-transform: rotate(-5deg); /* IE 9 */
+    -webkit-transform: rotate(-5deg); /* Safari */
+    transform: rotate(-5deg);
+}
+

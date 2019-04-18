@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>File Allocation</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script
+	src="https://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"> 
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Mono">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/file_allocation/indexed.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+	<script type="text/javascript" src="/javascripts/file_allocation/indexed.js"></script>
+	<link rel="stylesheet" href="/stylesheets/common.css">
+</head>
+<body onload="put_blocks()" style="background-color: #e5e5e5;">
+	<header>
+			<div class="container" style="margin: 0;">
+				<div class="header-section">
+				<div>
+				</div>
+				<div class="header-font center-align">   
+						<div  class="animated infinite bounce delay-2s" style="color:black">Indexed File Allocation</div>
+					</div>
+			</div>
+		</div>
+	</header>
+
+				<div class="row">
+					<!-- <div class="col s6"><h4>Indexed File Allocation</h4></div> -->
+				</div>
+				<div class="container">
+				<div class="row">
+					<div class="col s4">
+						<div class="form-group">
+							<input class="validate form-control" type="text" id="file-name"/>
+							<label for="file-name">File Name</label>
+						</div>
+					</div>
+					<div class="col s4">
+						<div class="form-group">
+							<input class="validate form-control" type="text" id="file-size"/>
+							<label for="file-size">File Size</label>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s4">
+						<a class="btn" style="background-color: white; color:black; border: 2px solid green;" onclick="add_file()">Add</a>
+					</div>
+				</div>
+				<br>
+				<div class="row size-line"> 
+					<div class="col s1">0</div>
+					<div class="col s11 right-align">63</div>
+				</div>
+				<div class="row blocks"></div>
+				<br>
+				<div class="file-chips"></div>
+			</div>
+		</div>
+	</div>
+</body>

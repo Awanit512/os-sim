@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disk Scheduling</title>
+      <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"> 
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700,900' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.1.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" type="text/javascript"></script>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/common.css">
+</head>
+
+<body style="background-color: #e5e5e5;">
+  <div class="container">
+<header>
+    <div class="container" style="margin: 0;">
+        <div class="header-section">
+        <div>
+        </div>
+        <div class="header-font center-align">   
+            <div  class="animated infinite bounce delay-2s" style="color:black">Disk Scheduling</div>
+          </div>
+        </div>
+    </div>
+</header>
+        
+    </ul>
+    <div class="row">
+    	<!-- <div class="text-center">
+    		<h3  class = "col-sm-4" style="color:white"><b>Cylinder Size</b></h3>
+    		<h3  class = "col-sm-4" style="color:white"><b>Current Head Position</b></h3>
+    		<h3  class = "col-sm-4" style="color:white"><b>Previous Head Position</b></h3>
+    	</div> -->
+    </div>
+    <div class="container">
+    <div class="row">
+
+    	<div class="input-field col s4 text-center form-group">
+    		<input class="validate form-control" id="csize" type="text"></input>
+            <label for="head_pos">Enter Cylinder Size</label>
+    	</div>
+    	<div class="input-field col s4 text-center form-group">
+    		<input class="validate form-control" id="cur" type="text"></input>
+            <label for="head_pos">Enter current head position</label>
+    	</div>
+    	<div class="input-field col s4 text-center form-group">
+    		<input class="validate form-control" id="prev" type="text"></input>
+            <label for="head_pos">Enter previous head position</label>   	
+        </div>
+    </div>
+    </div>
+    <div class="row text-center">
+        <div id="n_req" style="display: none;">0</div>
+        <div class = "col s6" style="padding-top:10px;font-size: 35px;">
+        <a style="background-color: white; color:black; border: 2px solid green;" class="btn" href="javascript:add_request()">Add Request</a>
+        </div>
+        <div class = "col s6" style="padding-top:8px;font-size: 35px;">
+        <a style="background-color: white; color:black; border: 2px solid green;" class="btn" href="javascript:remove_request()">Remove Request</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" id="requests">
+
+        </div>
+        <div class="row">
+         <a style="background-color: white; color:black; border: 2px solid green;" class="waves-effect waves-light btn" onclick="javascript:submit()" href="#charts" style="">Submit</a>
+        </div>
+    </div>
+
+    <div id="charts">
+    </div>
+    <br>
+    <div id="fcfs">
+    </div>
+    <br>
+    <div id="sstf">
+    </div>
+    <br>
+    <div id="look">
+    </div>
+    <br>
+    <div id="scan">
+    </div>
+    <br>
+    <div id="clook">
+    </div>
+    <br>
+    <div id="cscan">
+    </div>
+    
+</div>
+</div>
+<script type="text/javascript" src="/javascripts/disk_scheduling/disk_scheduling.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+</body>
+</html>
