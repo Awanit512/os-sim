@@ -213,6 +213,7 @@ function submit() {
         async: false
     });
     print_table(output);
+    draw_graph(tt, wt);
 
 }
 
