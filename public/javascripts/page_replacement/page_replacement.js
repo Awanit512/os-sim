@@ -33,6 +33,7 @@ $(document).ready(function() {
 	            data: {inp},
 	            url: '',                     
 	            success: function(data) {
+	            	localStorage.setItem("data",data);
 	            	document.getElementById("lru_table").innerHTML="<tr></tr>";
 	            	document.getElementById("fifo_table").innerHTML="<tr></tr>";
 	            	document.getElementById("optimal_table").innerHTML="<tr></tr>";
@@ -46,8 +47,9 @@ $(document).ready(function() {
 	            	fifo=data.split("SECOND CHANCE")[0];
 	            	fifo=fifo.split("FIFO")[1];
 	            	optimal=data.split("OPTIMAL")[1];
-	            	optimal=optimal.split("SECOND CHANCE")[0];
-	            	second_chance=data.split("SECOND CHANCE")[1];
+	            	second_chance=data.split("OPTIMAL")[0];
+	            	second_chance=second_chance.split("SECOND CHANCE")[1];
+
 	            	var regex = /\|(.*?)\|/g;
 	            	var lru_vals=[];
 					var lru_results=[];
