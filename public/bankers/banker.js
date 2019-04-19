@@ -85,6 +85,7 @@ var res,pro;
 						var res_form = document.resource;
 						console.log(res_form[1]);
 						var resource = [];
+						var safeSequence = "";
 						for(var i = 1;i <= res; i++)
 						{
 							resource[i-1] = Number(res_form[i].value);
@@ -261,6 +262,7 @@ var res,pro;
                                         ul2.append(li);
                                         ul1.append(ul2);
                                         prints.appendChild(ul1);
+                                        safeSequence = safeSequence + i + " ";
 									}
 								}
 							}
@@ -277,7 +279,7 @@ var res,pro;
 								{
                                     console.log("Safe State");
                                     var li = document.createElement("li");
-                                    li.appendChild(document.createTextNode("Safe State"));
+                                    li.appendChild(document.createTextNode("Safe State: The sequence is " + safeSequence));
                                     prints.appendChild(li);
 									break;
 								}
