@@ -24,6 +24,8 @@ var res,pro;
 					$item.appendChild($field);
 					$container.appendChild($item);
 				}
+
+				BuildFormFields4($amount);
             }
             function BuildFormFields2($amount) //For Allocation
 			{
@@ -79,6 +81,32 @@ var res,pro;
                     }
 				}
             }
+
+            function BuildFormFields4($amount) // For Resorce allocation
+			{
+                
+                res = $amount;
+                if(res<0)
+                	alert("Invalid Inputs");
+				var
+					$container = document.getElementById('FormFields3'),
+					$item, $field, $i;
+				// $container.innerHTML = '';
+				for ($i = 0; $i < $amount; $i++) {
+					$item = document.createElement('div');
+					$item.style.margin = '10px';
+				
+                    $field = document.createElement('label');
+                    $field.innerHTML = 'Resource '+$i;
+					$item.appendChild($field);
+					$field = document.createElement('input');
+					$field.name = 'Design[' + $i + ']';
+					$field.type = 'text';
+                    $field.setAttribute("class","form-control");
+					$item.appendChild($field);
+					$container.appendChild($item);
+				}
+            }
             var y;
 			function banker()
 			{
@@ -128,8 +156,45 @@ var res,pro;
 							}
 						console.log(alloc);
 						var avail = [];
+						var request = [];
+						var rr_form = document.rr;
+						var pid = rr_form[0].value;
+						var check = 0;
+						for(var i=1; i <= res; i++)
+						{
+							request[i-1] = Number(rr_form[i].value);
+							console.log('Request: ' + i + " " + request[i-1]);
+							if(request[i-1]!= 0)
+							{
+								check = 1;
+							}
+						}
 						for(var i = 0; i < res; i++)
-							avail[i] = resource[i];
+								avail[i] = resource[i];
+						if(check != 0)
+						{
+							for(var i=0; i < res; i++)
+							{
+								if(request[i] > needy[pid][i])
+								{
+									var print = document.getElementById("printing");
+									print.innerHTML = "Error 1";
+									return;
+								}
+								if(request[i] > avail[i])
+								{
+									var print = document.getElementById("printing");
+									print.innerHTML = "Error 2";
+									return;
+								}
+							}
+							for(var i=0; i < res; i++)
+							{
+								avail[i] = avail[i] - request[i];
+								alloc[pid][i] = alloc[pid][i] + request[i];
+								needy[pid][i] = needy[pid][i] - request[i];
+							}
+						}
 						// for(var i = 0; i < pro; i++)
 						// {
 						// 	for(var j = 0; j < res; j++)
