@@ -545,7 +545,7 @@ $(document).ready(function() {
     $('#qblock-' + queue_div).animate({height: 100*(s/totalMemoryQueue) + '%'}, "fast");
     $('#qblock-' + queue_div).css({"border-color": "#FFFFFF", "border-width":"2px", "border-style":"solid"});
     writeToTable(newVar);
-    $('#op-data-'+ newVar.divID).css('background','rgb(66, 134, 244)   ');
+    $('#op-data-'+ newVar.divID).css('background','rgb(255, 255, 255)   ');
     total_blocks_queue++;
     queue_div++;
     num_of_blocks_in_queue++;
@@ -553,9 +553,12 @@ $(document).ready(function() {
 
 
   //Functions to handle the terminal-text-box
+  $('#bottom-box').css('color','rgb(0,0,0)');
+  $('#bottom-box').css('background','#e5e5e5');
+  $('#terminal-body').css('background','#ffffff');
   setInterval(callWriteTo,1000);
   setInterval(scrollTypedTextDown, 500);
-
+  
    function writeTo(){
        flag2 = true;
        if(write >= collection.length){
@@ -564,6 +567,7 @@ $(document).ready(function() {
        }
 
        $('#terminal-body').append('<div id="typed-'+ write +'"></div>');
+       
 
        scrollTypedTextDown();
 

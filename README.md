@@ -11,7 +11,7 @@ User Interface simulating the major concepts of Operating Systems.
 - File Allocation
 
 ### Extra Algorithms Simulated
-- Multilevel Queue Scheduling
+- Priority Aging process Scheduling
 - Sleeping Barber Problem
 - Second Chance Page Replacement Algorithm
 
